@@ -19,8 +19,8 @@ export class CrudService {
   constructor(private httpClient: HttpClient) { }
  
   // Get all books
-  GetBooks() {
-    return this.httpClient.get(`${this.REST_API}`);
+  GetBooks():Observable<Book[]> {
+    return this.httpClient.get<Book[]>(`${this.REST_API}`);
   }
 
   AddBook(data: Book): Observable<any>{
